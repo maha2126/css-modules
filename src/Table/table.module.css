@@ -1,0 +1,18 @@
+.items{
+    border: 1px solid gray;
+    border-collapse: collapse;
+    width: 50%;
+    margin: 0 auto;
+}
+.items tr, .items td, .items th{
+    border: 1px solid gray;
+    text-align: center;
+}
+.items img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.items tr:hover{
+    background: yellowgreen;
+}

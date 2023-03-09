@@ -1,25 +1,22 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
+import Grid from './Grid/Grid'
+import Table from './Table/Table'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+
+  const[users,setUsers] = useState([])
+
+  useEffect(() => {
+    fetch("https://randomuser.me/api?results=9&inc=name,picture")
+    .then(r => r.json())
+    .then(r => setUsers(r.results))
+  }, [])
+
+  return <div>
+    <Grid users={users}/>
+    <Table users={users}/>
+  </div>
 }
 
 export default App;
